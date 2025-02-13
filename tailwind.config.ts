@@ -1,3 +1,7 @@
+// adding in the configuration to make this look and feel like a USWDS site by adding in
+// all the different components, icons, and colors that are used in the USWDS site
+// this way we can use this as a template for other sites we may want to build in the future
+// with Next.js but still maintain the USWDS look and feel
 import type { Config } from "tailwindcss";
 import { addDynamicIconSelectors } from "@iconify/tailwind";
 import tailwindForms from "@tailwindcss/forms";
