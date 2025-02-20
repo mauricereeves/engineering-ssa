@@ -30,4 +30,33 @@ export const WebServices: ApiService[] = [
       },
     ],
   },
+  {
+    id: 3,
+    name: "API 3",
+    description:
+      "This is the third API with a really really really really long description that is going to be truncated for display purposes",
+    active: true,
+    documentationUrl: "https://api3.com",
+    contacts: [
+      {
+        id: 1,
+        name: "Jane Doe",
+        email: "",
+      },
+    ],
+  },
+  {
+    id: 4,
+    name: "API 4",
+    description: "This is the fourth API",
+    active: true,
+    documentationUrl: "https://api4.com",
+    contacts: [
+      {
+        id: 7,
+        name: "Jane Doe",
+        email: "",
+      },
+    ],
+  },
 ];
