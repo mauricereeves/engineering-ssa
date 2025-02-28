@@ -1,3 +1,6 @@
+// elide a string if it's longer than a certain length
+// so we don't blow out the styling with a really
+// long string
 export default function TextEllipsisComponent(
   text: string,
   maxLength: number = 30,

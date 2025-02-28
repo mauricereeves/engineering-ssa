@@ -1,19 +1,27 @@
 "use client";
 
-import { usePathname, useSearchParams, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { WebServices } from "@/data/WebServices";
 import { ApiService } from "@/types/PortalTypes";
 
-export default function ServiceInfoComponent() {
-  const id = 1;
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
+// return the webservice we are looking for
+function findWebService(serviceId: number): ApiService | undefined {
+  const service: ApiService | undefined = WebServices.find(
+    (service) => service.id === serviceId,
+  );
+  return service;
+}
+
+// wraps data from an API Service and gives us the details
+export default function ServiceInfoComponent({
+  serviceId,
+}: {
+  serviceId: string;
+}) {
   const router = useRouter();
 
   // Find the service by ID
-  const service: ApiService | undefined = WebServices.find(
-    (service) => service.id === Number(id),
-  );
+  const service: ApiService | undefined = findWebService(Number(serviceId));
 
   if (!service) {
     return <div>Service not found</div>;
@@ -29,7 +37,6 @@ export default function ServiceInfoComponent() {
           {service.documentationUrl}
         </a>
       </p>
-      <p>{service.description}</p>
       <h2 className="text-xl font-bold mt-4">Contacts</h2>
       <ul>
         {service.contacts?.map((contact) => (
@@ -54,11 +61,6 @@ export default function ServiceInfoComponent() {
       >
         Go Back to the Dashboard
       </button>
-      <p>
-        Path Name: {pathname}
-        <br />
-        Search Params: {searchParams.toString()}
-      </p>
     </main>
   );
 }
